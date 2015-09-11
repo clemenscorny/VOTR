@@ -40,15 +40,10 @@ class KCVraw(object):
         rs, cs = pylab.meshgrid(grid_x, grid_y)
         y = pylab.exp(-0.5 / output_sigma**2 * (rs**2 + cs**2))
         self.yf = pylab.fft2(y)
-        #print("yf.shape ==", yf.shape)
-        #print("y.shape ==", y.shape)
 
         # store pre-computed cosine window
         self.cos_window = pylab.outer(pylab.hanning(self.sz[0]),
                                       pylab.hanning(self.sz[1]))
-
-        #total_time = 0  # to calculate FPS
-        #positions = pylab.zeros((len(img_files), 2))  # to calculate precision
 
         global z, response
         z = None
@@ -236,8 +231,5 @@ class KCVraw(object):
         xx_yy = xx + yy
         xx_yy_2xy = xx_yy - 2 * xy
         k = pylab.exp(scaling * pylab.maximum(0, xx_yy_2xy / x.size))
-
-        #print("dense_gauss_kernel x.shape ==", x.shape)
-        #print("dense_gauss_kernel k.shape ==", k.shape)
 
         return k

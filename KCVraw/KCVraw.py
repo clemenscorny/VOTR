@@ -4,7 +4,7 @@ import pylab
 import scipy.misc
 
 
-class KCV(object):
+class KCVraw(object):
 
     def __init__(self):
         self.is_first_frame = True

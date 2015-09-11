@@ -3,7 +3,7 @@ import logging
 import cv2
 import numpy as np
 
-import KCV
+import KCVraw
 
 
 def array_to_int_tuple(X):
@@ -16,7 +16,7 @@ def main():
     with open('images.txt') as f:
         images = [line.strip() for line in f]
 
-    kcv = KCV.KCV()
+    kcv = KCVraw.KCVraw()
 
     init_region = np.genfromtxt('region.txt', delimiter=',')
     num_frames = len(images)
